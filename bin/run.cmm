@@ -1,0 +1,249 @@
+;===================================================================================================
+;
+;    @file        run.cmm
+;    @version     1.0.5
+;
+;    @brief       AUTOSAR - Sample_app - Script for programming internal flash and executing
+;    @details     LTB script used for loading the elf into flash.
+;
+;    Project      : AUTOSAR 4.0 MCAL
+;    Platform     : PA
+;    Peripheral   : 
+;    Dependencies : Base Det Dem Port Dio Mcu Rte Wdg WdgIf CanIf LinIf FrIf EcuM
+;
+;    Autosar Version       : 4.0.3
+;    Autosar Revision      : ASR_REL_4_0_REV_0003
+;    Autosar Conf. Variant :
+;    Software Version      : 1.0.5
+;    Build Version         : MPC5746C_MCAL_1_0_5_RTM_ASR_REL_4_0_REV_0003_20171214
+;
+;    (c) Copyright 2017 Freescale Semiconductor Inc. & STMicroelectronics
+;    All Rights Reserved.
+;
+;    This file contains sample code only. It is not part of the production code deliverables.
+;
+;
+;===================================================================================================
+;;===================================================================================================
+;Revision History:
+;                             Modification     Tracking
+;Author (core ID)              Date D/M/Y       Number     Description of Changes
+;---------------------------   ----------    ------------  ------------------------------------------
+;Marius Rotaru (rtrm001)        9/07/2009    ENGR119813    File creation
+;Nicolae Dobrostomat (b00556)  11/03/2010    ENGR121138    Added support for OS
+;Vladut Sterian (b34075)       09/07/2015    ENGR00362231  Added SLOWRESET option 
+;---------------------------   ----------    ------------  ------------------------------------------
+;',);===================================================================================================
+
+
+;
+; Flashing algorithm is specific to each device
+;
+;&flashbase=0x01000000
+&rambase=0x40000000
+;&flashsize=0x00380000
+;&flashsize=0x00780000
+&flashdriver="c55fm5746m.bin"
+
+
+
+
+;========================================================================
+SYStem.RESet
+SYStem.BdmClock 4MHz
+SYStem.CPU MPC5746C
+SYStem.CONFIG.CORE 1. 1. ; select core 1
+SYStem.CONFIG.SLAVE OFF
+SYStem.Option.WATCHDOG OFF
+SYStem.OPTION DUALPORT ON
+SYStem.Option.SLOWRESET ON
+SYStem.DETECT CPU
+;DIAG 3117 1
+system.Option SLOWRESET ON
+SYStem.Up
+
+; Initialize internal SRAM
+if (CPU()=="MPC5746C")      ; Calypso3M
+(
+  Data.Set EA:0x40000000--0x4007FFFF %quad 0
+)
+else
+(
+  Data.Set EA:0x40000000--0x400BFFFF %quad 0
+)
+
+
+
+
+
+;========================================================================
+; Flash declaration 
+;=========================================================================
+  print "Starting FLASH sector creation:"
+  
+   FLASH.RESet
+
+  ; Low address space
+  FLASH.Create 1. 0x00404000--0x00407FFF NOP    Quad 0x0001    ; BAF - read only
+  FLASH.Create 1. 0x00610000--0x0061FFFF TARGET Quad 0x0007    ; 16 KB HSM code block 2
+  FLASH.Create 1. 0x00620000--0x0062FFFF TARGET Quad 0x0009    ; 16 KB HSM code block 3
+  FLASH.Create 1. 0x00F8C000--0x00F8FFFF TARGET Quad 0x0000    ; 16 KB code block 0
+  FLASH.Create 1. 0x00FC0000--0x00FC7FFF TARGET Quad 0x0002    ; 32 KB code block 2
+  FLASH.Create 1. 0x00FC8000--0x00FCFFFF TARGET Quad 0x0003    ; 32 KB code block 3
+  FLASH.Create 1. 0x00FD0000--0x00FD7FFF TARGET Quad 0x0004    ; 32 KB code block 4
+  FLASH.Create 1. 0x00FD8000--0x00FDFFFF TARGET Quad 0x0005    ; 32 KB code block 5
+  FLASH.Create 1. 0x00FE0000--0x00FEFFFF TARGET Quad 0x0006    ; 64 KB code block 0
+  FLASH.Create 1. 0x00FF0000--0x00FFFFFF TARGET Quad 0x0008    ; 64 KB code block 1
+
+  ; Mid address space
+  FLASH.Create 2. 0x00F90000--0x00F93FFF TARGET Quad 0x0100    ; 16 KB code block 1
+  FLASH.Create 2. 0x00F94000--0x00F97FFF TARGET Quad 0x0101    ; 16 KB code block 2
+  FLASH.Create 2. 0x00F98000--0x00F9BFFF TARGET Quad 0x0102    ; 16 KB code block 3
+  FLASH.Create 2. 0x00F9C000--0x00F9FFFF TARGET Quad 0x0103    ; 16 KB code block 4
+  FLASH.Create 2. 0x00FA0000--0x00FA3FFF TARGET Quad 0x0104    ; 16 KB code block 5
+  FLASH.Create 2. 0x00FA4000--0x00FA7FFF TARGET Quad 0x0105    ; 16 KB code block 6
+  FLASH.Create 2. 0x00FA8000--0x00FABFFF TARGET Quad 0x0106    ; 16 KB code block 7
+  FLASH.Create 2. 0x00FAC000--0x00FAFFFF TARGET Quad 0x0107    ; 16 KB code block 8
+  FLASH.Create 2. 0x00FB0000--0x00FB7FFF TARGET Quad 0x0108    ; 32 KB code block 0
+  FLASH.Create 2. 0x00FB8000--0x00FBFFFF TARGET Quad 0x0109    ; 32 KB code block 1
+
+  ; High address space
+  FLASH.Create 3. 0x00F80000--0x00F83FFF TARGET Quad 0x0200    ; HSM data block 0
+  FLASH.Create 3. 0x00F84000--0x00F87FFF TARGET Quad 0x0201    ; HSM data block 1
+
+  ; Large (256k) address space
+  FLASH.Create 4. 0x01000000--0x0103FFFF TARGET Quad 0x0300    ; 256 KB Flash block 0
+  FLASH.Create 4. 0x01040000--0x0107FFFF TARGET Quad 0x0301    ; 256 KB Flash block 1
+  FLASH.Create 4. 0x01080000--0x010BFFFF TARGET Quad 0x0302    ; 256 KB Flash block 2
+  FLASH.Create 4. 0x010C0000--0x010FFFFF TARGET Quad 0x0303    ; 256 KB Flash block 3
+  FLASH.Create 4. 0x01100000--0x0113FFFF TARGET Quad 0x0304    ; 256 KB Flash block 4
+  FLASH.Create 4. 0x01140000--0x0117FFFF TARGET Quad 0x0305    ; 256 KB Flash block 5
+  FLASH.Create 4. 0x01180000--0x011BFFFF TARGET Quad 0x0306    ; 256 KB Flash block 6
+  FLASH.Create 4. 0x011C0000--0x011FFFFF TARGET Quad 0x0307    ; 256 KB Flash block 7
+  FLASH.Create 4. 0x01200000--0x0123FFFF TARGET Quad 0x0308    ; 256 KB Flash block 8
+  FLASH.Create 4. 0x01240000--0x0127FFFF TARGET Quad 0x0309    ; 256 KB Flash block 9
+  FLASH.Create 4. 0x01280000--0x012BFFFF TARGET Quad 0x030a    ; 256 KB Flash block 10
+  FLASH.Create 4. 0x012C0000--0x012FFFFF TARGET Quad 0x030b    ; 256 KB Flash block 11
+  FLASH.Create 4. 0x01300000--0x0133FFFF TARGET Quad 0x030c    ; 256 KB Flash block 12 
+  FLASH.Create 4. 0x01340000--0x0137FFFF TARGET Quad 0x030d    ; 256 KB Flash block 13
+  FLASH.Create 4. 0x01380000--0x013BFFFF TARGET Quad 0x030e    ; 256 KB Flash block 14
+  FLASH.Create 4. 0x013C0000--0x013FFFFF TARGET Quad 0x030f    ; 256 KB Flash block 15
+  FLASH.Create 4. 0x01400000--0x0143FFFF TARGET Quad 0x0310    ; 256 KB Flash block 16
+  FLASH.Create 4. 0x01440000--0x0147FFFF TARGET Quad 0x0311    ; 256 KB Flash block 17
+  FLASH.Create 4. 0x01480000--0x014BFFFF TARGET Quad 0x0312    ; 256 KB Flash block 18
+  FLASH.Create 4. 0x014C0000--0x014FFFFF TARGET Quad 0x0313    ; 256 KB Flash block 19
+  FLASH.Create 4. 0x01500000--0x0153FFFF TARGET Quad 0x0314    ; 256 KB Flash block 20
+  FLASH.Create 4. 0x01540000--0x0157FFFF TARGET Quad 0x0315    ; 256 KB Flash block 21
+
+  ; UTEST address space
+  FLASH.Create 6. 0x00400000--0x00403FFF NOP    Quad 0x0500    ; UTEST - OTP
+
+  ; Overlay enabled mapping
+  FLASH.CreateALIAS 0x08A00000--0x08FFFFFF 0x00A00000   ; Small & medium flash blocks
+  FLASH.CreateALIAS 0x09000000--0x09FFFFFF 0x01000000   ; Large flash blocks
+
+  FLASH.TARGET E:0x40004000 E:0x40008000 0x4000 ~~/demo/powerpc/flash/quad/c55fm5746m.bin /STACKSIZE 0x0200
+
+;========================================================================
+; Flash programming example
+;
+; Flash programming speed is about three times faster when memory class E:
+; is used for data buffer (DUALPORT memory access). For DUALPORT access it
+; is required to setup MemAccess NEXUS for both, NEXUS and JTAG debugger.
+
+print "Flash Programming start"
+ FLASH.UNLOCK ALL
+;;;  FLASH.ReProgram ALL /Erase
+;;;  Data.Load.Elf sample_app_mcal.elf E:0x01000000--(0x01000000+&flashsize-1) /Quad /verify
+;;;  FLASH.ReProgram OFF
+;;;  FLASH.LOCK ALL
+
+    FLASH.ReProgram ALL 
+    Data.Load.Elf sample_app_mcal.elf /Quad
+    
+    ; owerrite the RCHW word
+   ; Data.Set SD:0x01000000 %BE %LONG &rchw
+
+    FLASH.ReProgram OFF
+
+;   FLASH.Auto ALL
+;   Data.Load.Elf sample_app_mcal.elf /Quad
+;  FLASH.Auto OFF
+;print "Flash Programming finish"
+;set JTAG clock back to default
+;SYStem.BdmClock 4MHz
+
+
+;========================================================================
+
+;Batch Job for debugging in internal FLASH
+;clear the TRACE32 screen
+WinCLEAR
+
+SYStem.RESet
+SYStem.BdmClock 5MHz
+SYStem.CPU MPC5746C
+SYStem.CONFIG.CORE 1. 1. 
+SYStem.CONFIG.SLAVE OFF
+SYStem.Option.WATCHDOG OFF
+SYStem.OPTION DUALPORT ON
+SYStem.DETECT CPU
+System.Option LPMDEBUG ACTIVE
+;restart the CPU with debug mode enable
+system.Option SLOWRESET ON
+SYSTem.Up
+
+if (CPU()=="MPC5746C")      ; Calypso3M
+(
+    ;inform debugger about FLASH memory address range
+    Map.BOnchip 0x00F90000--0x0127FFFF
+)
+else
+(
+    ;inform debugger about FLASH memory address range
+    Map.BOnchip 0x00F90000--0x0157FFFF
+)
+
+
+
+;restart the CPU with debug mode enable
+system.Option SLOWRESET ON
+SYSTem.Up
+
+
+
+;load program (if FLASH selected than load only debug symbols)
+
+Data.Load.Elf sample_app_mcal.elf  /GLOBTYPES /NOCODE
+
+
+;display source
+Data.List
+
+; Include test execution, timeout and dump processing
+
+
+;clear all breakpoints
+Break.delete /ALL
+
+print "[BEART]: Setting PC to _start"
+R.S IP _start
+
+
+;set breakpoint at main
+
+Break.SET main
+;Go
+
+;Executing test application with timeout " 60 " s"
+;wait for timeout or until the emulation is stopped
+;wait !run() 60.s
+
+;stop the emulation if it is runnning
+IF run()
+    (
+        Break
+    )
+
+;quit
+

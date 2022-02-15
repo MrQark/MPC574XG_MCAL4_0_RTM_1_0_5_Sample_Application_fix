@@ -1,0 +1,868 @@
+<?xml version='1.0'?>
+<datamodel version="4.0" 
+           xmlns="http://www.tresos.de/_projects/DataModel2/10/root.xsd" 
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/10/attribute.xsd" 
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd" 
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr name="ComTransformer">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/ComTransformer"/>
+    <d:var name="System" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="EcuInstance" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="Prefix" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="CanBufferAssignment" value="FALSE">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="InstanceSuffix" value="FALSE">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:lst name="ModuleConfigurations" type="MAP"/>
+  </d:ctr>
+  <d:ctr name="ImporterExporterAdditions">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/ImporterExporterAdditions"/>
+    <d:lst name="OilImportersExporters" type="MAP"/>
+    <d:var name="Version_SystemDescriptionImporter" value="4">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:lst name="SystemDescriptionImporters" type="MAP"/>
+    <d:var name="Version_AutosarImporter" value="2">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:lst name="AutosarImportersExporters" type="MAP">
+      <d:ctr name="Mcu">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Mcu.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Dem">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Dem.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Pwm">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Pwm.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Adc">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Adc.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Can">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Can.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Fee">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Fee.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Fls">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Fls.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Gpt">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Gpt.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="EcuM">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\EcuM.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Icu">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Icu.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Mcl">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Mcl.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Port">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Port.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Lin">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Lin.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Spi">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Spi.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Wdg">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Wdg.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Dio">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\output\Dio.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+      <d:ctr name="Os">
+        <d:var name="FileName" 
+               value="C:\Users\B46093\Desktop\Integration\Calypso\sample_app_mcal\Tresos\workspace\MCAL_SampleApplication\output\epc\Os.epc"/>
+        <d:var name="ContentType" value="asc:4.0.3"/>
+        <d:var name="Validation" value="FALSE"/>
+        <d:var name="pathMapping" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="pathMappingAuto" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:lst name="pathMappings" type="MAP"/>
+        <d:var name="Strategy" value="Replace"/>
+        <d:var name="ConfigClassPreCompile" value="FALSE"/>
+        <d:var name="ConfigClassLink" value="FALSE"/>
+        <d:var name="ConfigClassPostBuild" value="FALSE"/>
+        <d:var name="ConfigClassPostBuildSelectable" value="FALSE">
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="OverwriteMode" value="FALSE"/>
+      </d:ctr>
+    </d:lst>
+    <d:lst name="ComImportersExporters" type="MAP"/>
+    <d:var name="Version_SystemDescriptionExporter" value="1">
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:lst name="SystemDescriptionExporters" type="MAP"/>
+  </d:ctr>
+  <d:ctr name="ECUCNature">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/ECUCNature"/>
+    <d:var name="ReleaseVersion" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="ECUId" value="ECUC"/>
+    <d:var name="ConfigurationPath" value="config"/>
+    <d:var name="GenerationPath" value="output"/>
+    <d:var name="UnixLF" value="FALSE"/>
+    <d:var name="UnixLFConfigData" value="FALSE"/>
+    <d:var name="DisableMinListChildCreation" value="TRUE"/>
+    <d:var name="ProjectSpecificSettings" value="FALSE"/>
+    <d:var name="ProjectSpecificSettingsConfigurationProject" value="FALSE"/>
+    <d:var name="Target" value="PA"/>
+    <d:var name="Derivate" value="MPC574XG"/>
+    <d:var name="DefaultPreConfiguration" value="McuPreConfiguration"/>
+    <d:var name="DefaultRecConfiguration" value="&lt;Use Module Default&gt;"/>
+    <d:ctr name="ConfigTime">
+      <a:a name="ENABLE" value="false"/>
+      <d:var name="PublishedInformation" value="FALSE">
+        <a:a name="IMPORTER_INFO" value="@DEF"/>
+      </d:var>
+      <d:var name="PreCompile" value="TRUE">
+        <a:a name="IMPORTER_INFO" value="@DEF"/>
+      </d:var>
+      <d:var name="Link" value="TRUE">
+        <a:a name="IMPORTER_INFO" value="@DEF"/>
+      </d:var>
+      <d:var name="PostBuild" value="TRUE">
+        <a:a name="IMPORTER_INFO" value="@DEF"/>
+      </d:var>
+    </d:ctr>
+  </d:ctr>
+  <d:ctr name="General">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/General"/>
+    <d:var name="Version" value="21.0.0"/>
+    <d:var name="System" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="EcuInstance" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:lst name="WizardConfigurations" type="MAP"/>
+    <d:lst name="ImportersExporters" type="MAP">
+      <d:ctr name="Mcu">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Dem">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Pwm">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Adc">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Can">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Fee">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Fls">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Gpt">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="EcuM">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Icu">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Mcl">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Port">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Lin">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Spi">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Wdg">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Dio">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+      <d:ctr name="Os">
+        <d:var name="Id" value="AutosarImporterExporter"/>
+        <d:var name="Mode" value="import"/>
+      </d:ctr>
+    </d:lst>
+    <d:var name="ReleaseVersion" value="4.0.3"/>
+    <d:var name="ModelExtenderCompatibility" value="TRUE"/>
+    <d:lst name="ModelExtender" type="MAP">
+      <d:ctr name="SystemModel2"/>
+      <d:ctr name="ModelEcuConfiguration"/>
+    </d:lst>
+    <d:lst name="ModuleConfigurations" type="MAP">
+      <d:ctr name="Adc">
+        <d:var name="ModuleId" value="Adc_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM_HF1"/>
+        <d:var name="ConfigurationFileURL" value="config\Adc.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Base">
+        <d:var name="ModuleId" value="Base_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Base.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Gpt">
+        <d:var name="ModuleId" value="Gpt_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Gpt.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Icu">
+        <d:var name="ModuleId" value="Icu_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Icu.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Lin">
+        <d:var name="ModuleId" value="Lin_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Lin.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Pwm">
+        <d:var name="ModuleId" value="Pwm_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Pwm.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Resource">
+        <d:var name="ModuleId" value="Resource_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Resource.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Wdg">
+        <d:var name="ModuleId" value="Wdg_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Wdg.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Port">
+        <d:var name="ModuleId" value="Port_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Port.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Spi">
+        <d:var name="ModuleId" value="Spi_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Spi.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Mcu">
+        <d:var name="ModuleId" value="Mcu_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM_HF2"/>
+        <d:var name="ConfigurationFileURL" value="config\Mcu.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Mcl">
+        <d:var name="ModuleId" value="Mcl_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Mcl.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Fls">
+        <d:var name="ModuleId" value="Fls_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Fls.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="EcuM">
+        <d:var name="ConfigurationFileURL" value="config\EcuM.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="ModuleId" value="EcuM_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+      </d:ctr>
+      <d:ctr name="Dem">
+        <d:var name="ModuleId" value="Dem_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Dem.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Fee">
+        <d:var name="ModuleId" value="Fee_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Fee.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Os">
+        <d:var name="ModuleId" value="Os_TS_T2D35M4I0R92"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="FALSE"/>
+        <d:var name="SoftwareVersion" value="4.0.92"/>
+        <d:var name="ConfigurationFileURL" value="config\Os.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+      <d:ctr name="Can">
+        <d:var name="ModuleId" value="Can_TS_T2D35M10I5R0"/>
+        <d:var name="Enabled" value="TRUE"/>
+        <d:var name="Generate" value="TRUE"/>
+        <d:var name="LoadExistingConfigurationFile" value="TRUE"/>
+        <d:var name="SoftwareVersion" value="1.0.5 RTM"/>
+        <d:var name="ConfigurationFileURL" value="config\Can.xdm"/>
+        <d:var name="ConfigurationFormat" value="xdm"/>
+        <d:var name="GenerationPath" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="PreConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+        <d:var name="RecConfig" >
+          <a:a name="IMPORTER_INFO" value="@DEF"/>
+        </d:var>
+      </d:ctr>
+    </d:lst>
+    <d:lst name="AutoconfigureTriggers" type="MAP"/>
+  </d:ctr>
+  <d:ctr name="EcuExtractCreator">
+    <a:a name="DEF" value="XPath:/PreferencesSchema/EcuExtractCreator"/>
+    <d:var name="System" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="EcuInstance" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="SourceOfSoftwareComposition" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="TopLevelComposition" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+    <d:var name="EcuSwComposition" >
+      <a:a name="IMPORTER_INFO" value="@DEF"/>
+    </d:var>
+  </d:ctr>
+
+</datamodel>

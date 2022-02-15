@@ -1,0 +1,252 @@
+/*==================================================================================================
+
+   @file        autosar_os.dld
+   @version     1.0.1
+
+   @brief       DIAB Linker Command File for Internal FLASH for MPC574XG
+   @details     DIAB Linker Command File for Internal FLASH for MPC574XG.
+
+   Project      : AUTOSAR 4.0 MCAL
+   Platform     : PA
+   Peripheral   : 
+   Dependencies : Base Det Dem Port Dio Mcu Rte Wdg WdgIf CanIf LinIf FrIf EcuM
+   
+   Autosar Version       : 4.0.3
+   Autosar Revision      : ASR_REL_4_0_REV_0003
+   Autosar Conf. Variant : 
+   Software Version      : 1.0.5
+   Build Version         : MPC5746C_MCAL_1_0_5_RTM_ASR_REL_4_0_REV_0003_20171214
+
+   (c) Copyright 2017 NXP
+   All Rights Reserved.
+
+==================================================================================================*/
+MEMORY
+{
+    bamboot        : org = 0x00F90000, len = 0x70000
+    internal_flash : org = 0x01000000, len = 0x270000
+    vectors        : org = 0x01270000, len = 0x00001000
+
+    internal_ram   : org = 0x40000000, len = 0x5FF00
+    res_ram        : org = 0x4005FF00, len = 0x100      /* a reserved ram section needed by FLS driver */
+    iram_stack     : org = 0x40060000, len = 0x1000   /* Stack end location */
+	iram_stack2    : org = 0x40061000, len = 0x1000   /* Stack end location */
+	int_sram_no_cacheable   : org = 0x40062000 len = 0x1E000
+}
+
+SECTIONS
+{
+    /* Code and constant group */
+    GROUP : {
+  .rchwdata : {}
+    } > bamboot
+
+
+    /* Code and constant group */
+    GROUP : {
+
+        /* Startup code of the second core. It shall be aligned at least on 1k */
+        .startup2 (TEXT) ALIGN(0x400): {
+            *(.startup2)
+            *(.startup2_vle)
+        }
+
+        /* Code and constant area (all code and constant sections shall be placed between .osbegincode and .osendcode sections) */
+        _f_osbegincode = .;
+        .osbegincode : {}
+
+        /*  OS code and constant data */
+        _f_ostext = .;
+        .ostext (TEXT) : {
+            *(.ostext)
+            *(.ostext_vle)
+         }
+        _e_ostext = .;
+        .oshook (TEXT) : {
+            *(.oshook)
+            *(.oshook_vle)
+         }
+
+        /* Code and constant data */
+        .init : { *(.init) *(.fini) }
+        .text : {}
+        .text_vle (TEXT) : {
+            *(.text)
+            *(.text_vle)
+         }
+        .appcode_vle (TEXT) : {
+            *(.appcode)
+            *(.appcode_vle)
+         }
+
+		.mcal_const_cfg (TEXT) : {}
+        .mcal_const (TEXT) : {}
+		
+        .rodata : {}
+        .acfls_code_rom(TEXT) :{}
+        .osrodata : {}
+        .sdata2 : {}
+        .ossrodata   : {}
+
+        /* constructor and destructor function ptrs */
+        .ctors : {}
+        .dtors : {}
+
+        .osendcode : {}
+        _e_osendcode = .;
+
+        __DATA_ROM = .;
+
+        _load_ramcode = . ; /* The start of the flash region rezerved for ramcode section and for the .sdata0, .sdata and .data sections.*/
+    } > internal_flash
+
+
+    /* Interrupt vectors group */
+    GROUP : {
+        _f_vects = .;
+        .vects (TEXT) ALIGN(64K): {
+          *(.vects)
+          *(.vects_vle)
+        }
+    } > vectors
+
+    /* Data/BSS group */
+    GROUP : {
+        _f_osstack = .;
+        .osstack      : {}
+        .osnoncacheablebss : {}
+        _e_osstack = .;
+
+        __DATA_RAM = .;
+         /* map consecutively .ramcode, .sdata0, sdata and .data sections */
+        .ramcode(TEXT) ALIGN(4) LOAD(_load_ramcode) : {}
+		 /* Short data sections */
+        /* default sdata threshold is 0, then sdata/sbss section are empty always. */
+        .sdata (DATA) LOAD(ADDR(.sdata) - ADDR(.ramcode) + _load_ramcode) : {}
+        .sdata0(DATA) LOAD(ADDR(.sdata0) - ADDR(.ramcode) + _load_ramcode) : {}
+		
+        .data (DATA) LOAD(ADDR(.data) - ADDR(.ramcode) + _load_ramcode) : {}
+		.mcal_data (DATA) LOAD( ADDR(.mcal_data) - ADDR(.ramcode) + _load_ramcode) : {}
+       
+		.osdata (DATA) LOAD(ADDR(.osdata) - ADDR(.ramcode) + _load_ramcode) : {}
+		
+        __DATA_END = .;
+
+        __BSS_START = .;
+
+				
+        /* Short bss sections */
+        .sbss : {}
+        .ossbss : {}
+
+        .bss   : {}
+        .osbss : {}
+		.mcal_bss  (BSS) : {}
+
+        __BSS_END = .;
+
+				
+    } > internal_ram
+    
+    GROUP : {
+                .acfls_code_ram(TEXT) ALIGN(4): {}
+              }>res_ram
+			  
+	GROUP :  {
+            
+            .mcal_data_no_cacheable (DATA) LOAD( ADDR(.mcal_data_no_cacheable)- ADDR(.ramcode) + _load_ramcode) : {}
+          
+    }>int_sram_no_cacheable
+    
+      GROUP : {
+            .mcal_bss_no_cacheable  (BSS) : {}
+    }>int_sram_no_cacheable
+}
+
+    __IV_ADDR           = ADDR(vectors);
+
+
+	INT_SRAM_START  = ADDR(internal_ram);
+	INT_SRAM_SIZE   = 0x80000/64;                   /* Init 64 bytes at a time */
+	SBSS_SRAM_START = ADDR(.sbss);
+	SBSS_SRAM_SIZE  = (ADDR(.bss)-SBSS_SRAM_START +3)/4;
+	BSS_SRAM_START  = ADDR(.bss);
+	BSS_SRAM_SIZE   = (__BSS_END - BSS_SRAM_START+3)/4;
+	SDATA_RW_START  = _SDA_BASE_;
+	SDATA_RO_START  = _SDA2_BASE_;
+	
+  BSS_NO_CACHEABLE_SRAM_START      = ADDR(.mcal_bss_no_cacheable);
+    BSS_NO_CACHEABLE_SRAM_SIZE       = (SIZEOF(.mcal_bss_no_cacheable)+3)/4;
+
+	/* generate symbols used in start-up code to init .ramcode section */
+	RC_RAMCODE_SRC =  _load_ramcode;
+	RC_RAMCODE_DEST = ADDR(.ramcode);
+	RC_RAMCODE_SIZE = (SIZEOF(.ramcode)+3) / 4;
+	
+
+
+  RC_PPC_SDATA2_SRC  = ADDR(.sdata0) - ADDR(.sdata) + _load_ramcode;
+  RC_PPC_SDATA2_DEST = ADDR(.sdata0);
+  RC_PPC_SDATA2_SIZE = (SIZEOF(.sdata0)+3) / 4;
+  RC_SDATA_SRC       = ADDR(.sdata) - ADDR(.data) + _load_ramcode;
+  RC_SDATA_DEST      = ADDR(.sdata);
+  RC_SDATA_SIZE      = (SIZEOF(.sdata)+3) / 4;
+  RC_DATA_SRC        = ADDR(.data) - ADDR(.ramcode) + _load_ramcode;
+  RC_DATA_DEST       = ADDR(.data);
+  RC_DATA_SIZE       = (SIZEOF(.data)+SIZEOF(.mcal_data)+3) / 4;
+  
+  	__RAM_NO_CACHEABLE_START      = ADDR(int_sram_no_cacheable);
+    __RAM_NO_CACHEABLE_END        = ADDR(int_sram_no_cacheable)+0x1DFFF;
+    __RAM_CACHEABLE_START         = ADDR(internal_ram);
+    __RAM_CACHEABLE_END           = ADDR(internal_ram)+0x61FFF;
+  
+
+/* Stack for master core */
+__SP_INIT      = ADDR(iram_stack2) + SIZEOF(iram_stack2);
+__SP_END       = ADDR(iram_stack2);
+
+     /* generate symbols used in start-up code to init .mcal_data_no_cacheable section */
+    RC_DATA_NO_CACHEABLE_SRC    = ADDR(.mcal_data_no_cacheable) - ADDR(.ramcode) + _load_ramcode;
+	RC_DATA_NO_CACHEABLE_DEST   = ADDR(.mcal_data_no_cacheable);
+    RC_DATA_NO_CACHEABLE_SIZE   = (SIZEOF(.mcal_data_no_cacheable)+3) / 4;
+
+/* Stack for master core */
+OS_MAIN_STACK_MAX   = __SP_INIT;
+OS_MAIN_STACK_MIN   = __SP_END;
+
+/* Stack for second core */
+OS2_MAIN_STACK_MAX  = ADDR(iram_stack) + SIZEOF(iram_stack);
+OS2_MAIN_STACK_MIN  = ADDR(iram_stack);
+
+/* Heap */
+__HEAP_START   = __BSS_END;
+__HEAP_END     = ADDR(res_ram);
+  
+/* Non-cacheable bss */
+OS_NONCACHE_BSS_START = ADDR(.osnoncacheablebss);
+OS_NONCACHE_BSS_SIZE = SIZEOF(.osnoncacheablebss);
+
+/* Some targets use an extra underscore in front of identifiers */
+
+___SP_INIT    = __SP_INIT;
+___SP_END   = __SP_END;
+___DATA_ROM   = __DATA_ROM;
+___DATA_RAM   = __DATA_RAM;
+___DATA_END   = __DATA_END;
+___BSS_START  = __BSS_START;
+___BSS_END    = __BSS_END;
+
+    /* Fls module access code support */    
+    Fls_ACEraseRomStart         = ADDR(.acfls_code_rom);
+    Fls_ACEraseRomEnd           = ADDR(.acfls_code_rom) + SIZEOF(.acfls_code_rom);
+    Fls_ACEraseSize             = (SIZEOF(.acfls_code_rom)+3) / 4; /* Copy 4 bytes at a time*/
+
+    Fls_ACWriteRomStart         = ADDR(.acfls_code_rom);
+    Fls_ACWriteRomEnd           = ADDR(.acfls_code_rom) + SIZEOF(.acfls_code_rom);
+    Fls_ACWriteSize             = (SIZEOF(.acfls_code_rom)+3) / 4; /* Copy 4 bytes at a time*/
+
+    _ERASE_FUNC_ADDRESS_        = ADDR(.acfls_code_ram);
+    _WRITE_FUNC_ADDRESS_        = ADDR(.acfls_code_ram);
+
+
+
